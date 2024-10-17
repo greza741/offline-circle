@@ -16,7 +16,7 @@ const uploader = async (files: Express.Multer.File[]) => {
       const b64 = Buffer.from(file.buffer).toString("base64");
       const dataURI = "data:" + file.mimetype + ";base64," + b64;
       const uploadedFile = await cloudinary.uploader.upload(dataURI, {
-        folder: "circle",
+        folder: process.env.CLOUDINARY_UPLOAD_FOLDER,
       });
       urls.push({
         url: uploadedFile.secure_url,
