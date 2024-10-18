@@ -1,11 +1,21 @@
-import { Suspense } from "react";
-import Router from "./router";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Router from "@/router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 const App = () => {
   return (
-    <Suspense fallback={<>Loading...</>}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router />
-    </Suspense>
+      <ToastContainer />
+    </ThemeProvider>
   );
 };
 
