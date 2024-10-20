@@ -4,8 +4,6 @@ import { Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 const LikeButton = ({ threadId }: { threadId: number }) => {
-  // fetching ada berapa balasan
-  // console.log(threadId);
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const checkLike = async () => {

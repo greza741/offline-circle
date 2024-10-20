@@ -4,10 +4,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Register from "@/pages/register";
-import Login from "@/pages/login";
 import RootLayout from "@/layout/root-outlet";
 import AuthLayout from "@/layout/auth-layput";
 import Home from "@/pages/home";
+import Detail from "@/pages/detail";
+import Profile from "@/components/profile/profile";
+import Login from "@/pages/login";
 
 const routes: RouteObject[] = [
   {
@@ -26,14 +28,14 @@ const routes: RouteObject[] = [
       //   path: "follows",
       //   element: <Follows />,
       // },
-      // {
-      //   path: "profile",
-      //   element: <Profile />,
-      // },
-      // {
-      //   path: "thread/:id",
-      //   element: <Detail />,
-      // },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "thread/:id",
+        element: <Detail />,
+      },
     ],
   },
   {

@@ -5,6 +5,7 @@ import Content from "./threadComp/content";
 import LikeButton from "./threadComp/like-button";
 import ReplyButton from "./threadComp/reply-button";
 import UserInformation from "./threadComp/user-info";
+import ModalDetail from "./threadComp/modalDetail";
 
 interface Props {
   thread: IThread;
@@ -38,13 +39,13 @@ const ThreadMap: React.FC<Props> = ({ thread }) => {
           </Stack>
         </Stack>
       </Stack>
-      {/* {thread?.images && (
-            <ModalDetail
-               handleClose={() => setOpen(false)}
-               images={thread.images}
-               open={open}
-            />
-         )} */}
+      {thread?.images && (
+        <ModalDetail
+          handleClose={() => setOpen(false)}
+          images={thread.images}
+          open={open}
+        />
+      )}
     </Box>
   );
 };
