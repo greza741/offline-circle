@@ -30,3 +30,11 @@ export const findLike = async (userId: number, threadId: number) => {
     },
   });
 };
+
+export const countLikes = async (threadId: number) => {
+  return await prisma.likes.count({
+    where: {
+      threadId,
+    },
+  });
+};

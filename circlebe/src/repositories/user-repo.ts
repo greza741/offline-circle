@@ -34,6 +34,12 @@ export const findUserAndProfile = async (username: string) => {
       email: true,
       username: true,
       profile: true,
+      _count: {
+        select: {
+          following: true,
+          follower: true,
+        },
+      },
     },
   });
 };

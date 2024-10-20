@@ -22,8 +22,10 @@ export const checkLike = async (req: Request, res: Response) => {
     const userId = res.locals.user.id;
     const threadId = +req.params.threadId;
     const like = await likeService.checkLike(userId, threadId);
+    const likeCount = await likeService.countLikes(threadId);
     res.json({
       isLiked: !!like,
+      count: likeCount,
     });
   } catch (error) {
     console.log(error);

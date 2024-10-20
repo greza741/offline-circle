@@ -4,6 +4,6 @@ import { authentication } from "../middlewares/authentication";
 const likeRouter = Router();
 
 likeRouter.post("/", authentication, likeController.createLike);
-likeRouter.get("/check", authentication, likeController.checkLike);
+likeRouter.get("/:threadId", authentication, likeController.checkLike);
 
 export default likeRouter;

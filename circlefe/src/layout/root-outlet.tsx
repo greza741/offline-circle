@@ -1,13 +1,15 @@
+import LeftBar from "@/components/sidebar/leftBar/leftBar";
+import RightBar from "@/components/sidebar/rightBar/rightBar";
 import { useAppSelector } from "@/stores";
 import { Box, Stack } from "@mui/material";
 import { Navigate, Outlet } from "react-router-dom";
 
 const RootLayout = () => {
-  //   const authState = useAppSelector((state) => state.auth);
+  const authState = useAppSelector((state) => state.auth);
 
-  //   if (!authState.token) {
-  //     return <Navigate to="/login" replace />;
-  //   }
+  if (!authState.token) {
+    return <Navigate to="/login" replace />;
+  }
   return (
     <Stack direction="row" height="100vh" width="100vw">
       <Box

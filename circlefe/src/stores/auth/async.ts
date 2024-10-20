@@ -1,6 +1,6 @@
 import { api } from "@/libs/api";
 import { IUser } from "@/type/userd";
-import { LoginSchema } from "@/validations/loginScema";
+import { LoginSchema } from "@/validations/loginSchema";
 import { RegisterSchema } from "@/validations/registerSchema";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -57,6 +57,7 @@ export const checkAuth = createAsyncThunk<
     if (!res.data) {
       return thunkAPI.rejectWithValue("Not a user");
     }
+    console.log("data user", res.data);
     return {
       user: res.data,
       token: token,

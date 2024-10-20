@@ -15,3 +15,6 @@ export const createLike = async (userId: number, threadId: number) => {
 export const checkLike = async (userId: number, threadId: number) => {
   return await likeRepositories.findLike(userId, threadId);
 };
+export const countLikes = async (threadId: number) => {
+  return await likeRepositories.countLikes(threadId);
+};

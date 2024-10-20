@@ -2,8 +2,8 @@ export interface IThread {
   id: number;
   content?: string;
   images?: IThreadImage[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   userId: number;
   mainThreadId: number;
   user: Omit<IUser>;

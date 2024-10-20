@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/stores";
 import { loginAsync, registerAsync } from "@/stores/auth/async";
-import { loginSchema, LoginSchema } from "@/validations/loginScema";
+import { loginSchema, LoginSchema } from "@/validations/loginSchema";
 import { RegisterSchema, registerSchema } from "@/validations/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Link, TextField, Typography } from "@mui/material";

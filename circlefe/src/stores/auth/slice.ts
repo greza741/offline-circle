@@ -1,6 +1,6 @@
 import { IUser } from "@/type/userd";
 import { createSlice } from "@reduxjs/toolkit";
-import { loginAsync, registerAsync } from "./async";
+import { checkAuth, loginAsync, registerAsync } from "./async";
 
 export interface AuthState {
   token: string;
@@ -44,6 +44,18 @@ const authSlice = createSlice({
         state.loading = true;
       })
       .addCase(loginAsync.rejected, (state) => {
+        state.loading = false;
+      });
+    builder
+      .addCase(checkAuth.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+      })
+      .addCase(checkAuth.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(checkAuth.rejected, (state) => {
         state.loading = false;
       });
   },
