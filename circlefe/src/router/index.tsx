@@ -8,8 +8,10 @@ import RootLayout from "@/layout/root-outlet";
 import AuthLayout from "@/layout/auth-layput";
 import Home from "@/pages/home";
 import Detail from "@/pages/detail";
-import Profile from "@/components/profile/profile";
 import Login from "@/pages/login";
+import Profile from "@/pages/profile";
+import { Search } from "@/pages/search";
+import Follow from "@/pages/follow";
 
 const routes: RouteObject[] = [
   {
@@ -20,14 +22,14 @@ const routes: RouteObject[] = [
         index: true,
         element: <Home />,
       },
-      // {
-      //   path: "search",
-      //   element: <Search />,
-      // },
-      // {
-      //   path: "follows",
-      //   element: <Follows />,
-      // },
+      {
+        path: "search",
+        element: <Search />,
+      },
+      {
+        path: "follow",
+        element: <Follow />,
+      },
       {
         path: "profile",
         element: <Profile />,

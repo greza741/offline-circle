@@ -107,7 +107,120 @@ const RightBar = () => {
             </Stack>
           </Box>
         </Box>
-        <Box>suggestion</Box>
+        <Box>
+          <Box py={2} height="100%" bgcolor="#1D1D1D" flexDirection="column">
+            <Box width="100%" height="10%">
+              <Box
+                m="10px 20px"
+                bgcolor="#262626"
+                boxShadow={2} // Menggunakan MUI box shadow
+                borderRadius="20px"
+                overflow="hidden"
+                color="white"
+                p="2px 20px"
+              >
+                <Typography>Suggested for you</Typography>
+                {/* baris nama suggestion */}
+                <Box
+                  pt="10px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Box display="flex" alignItems="center">
+                    <Avatar
+                      src=""
+                      alt="Profile Picture"
+                      sx={{ width: 35, height: 35 }}
+                    />
+
+                    <Box textAlign="left" padding={"0px 10px"}>
+                      <Typography fontWeight="700">test</Typography>
+                      <Typography color="gray">@test</Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Button
+                      sx={{
+                        border: "1px solid white",
+                        color: "white",
+                        textDecoration: "none",
+                        borderRadius: "20px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      Follow
+                    </Button>
+                  </Box>
+                </Box>
+                <Box
+                  pt="10px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Box display="flex" alignItems="center">
+                    <Avatar
+                      src=""
+                      alt="Profile Picture"
+                      sx={{ width: 35, height: 35 }}
+                    />
+
+                    <Box textAlign="left" padding={"0px 10px"}>
+                      <Typography fontWeight="700">test1</Typography>
+                      <Typography color="gray">@test1</Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Button
+                      sx={{
+                        border: "1px solid white",
+                        color: "white",
+                        textDecoration: "none",
+                        borderRadius: "20px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      Follow
+                    </Button>
+                  </Box>
+                </Box>
+                <Box
+                  pt="10px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Box display="flex" alignItems="center">
+                    <Avatar
+                      src=""
+                      alt="Profile Picture"
+                      sx={{ width: 35, height: 35 }}
+                    />
+
+                    <Box textAlign="left" padding={"0px 10px"}>
+                      <Typography fontWeight="700">test2</Typography>
+                      <Typography color="gray">@test2</Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Button
+                      sx={{
+                        border: "1px solid white",
+                        color: "white",
+                        textDecoration: "none",
+                        borderRadius: "20px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      Follow
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
         <Box
           margin="2px 20px"
           bgcolor="#262626"

@@ -21,7 +21,7 @@ const RootLayout = () => {
       >
         <LeftBar />
       </Box>
-      <Box sx={{ flex: 2, overflow: "auto" }}>
+      <Box sx={{ flex: 2, overflow: "auto", backgroundColor: "#1D1D1D" }}>
         <Outlet />
       </Box>
       <Box
