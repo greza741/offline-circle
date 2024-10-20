@@ -5,7 +5,6 @@ import * as userRepositories from "../repositories/user-repo";
 import { sendEmail } from "./mail-service";
 
 export const login = async (loginInfo: LoginDto) => {
-  // 1. kita cari user dengan email yang sesuai
   const user = await userRepositories.findUserByEmailOrUsername(
     loginInfo.username
   );
@@ -13,7 +12,6 @@ export const login = async (loginInfo: LoginDto) => {
     throw new Error("User not found");
   }
 
-  // 2. kita cek passwordnya
   const isValidPassword = await bcrypt.compare(
     loginInfo.password,
     user.password
@@ -23,7 +21,6 @@ export const login = async (loginInfo: LoginDto) => {
     throw new Error("User not found");
   }
 
-  // 3. generate token
   const token = jwt.sign(
     {
       id: user.id,
@@ -36,7 +33,6 @@ export const login = async (loginInfo: LoginDto) => {
     }
   );
 
-  // 4. return token
   return token;
 };
 
@@ -62,13 +58,11 @@ export const register = async (registerInfo: RegisterDto) => {
 };
 
 export const forgotPassword = async (email: string) => {
-  // 1. kita cari user dengan email yang sesuai
   const user = await userRepositories.findUserByEmailOrUsername(email);
   if (!user) {
     throw new Error("User not found");
   }
 
-  // 2. generate token
   const token = jwt.sign(
     {
       email: user.email,
@@ -79,7 +73,6 @@ export const forgotPassword = async (email: string) => {
     }
   );
 
-  // 3. kirim email
   await sendEmail(email, token);
 
   return "success";

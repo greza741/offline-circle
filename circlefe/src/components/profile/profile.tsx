@@ -56,8 +56,8 @@ const Profile = () => {
             <Box
               borderRadius="full"
               overflow="hidden"
-              width="100px" // sesuaikan dengan ukuran yang diinginkan
-              height="100px" // sesuaikan dengan ukuran yang diinginkan
+              width="100px"
+              height="100px"
             >
               <Avatar
                 src={data?.profile?.avatar}
@@ -96,13 +96,13 @@ const Profile = () => {
               }}
             >
               <Typography
-                fontSize={"25px"}
+                fontSize={"30px"}
                 fontWeight={1000}
                 fontFamily={"body"}
               >
                 {data?.profile?.fullname}
               </Typography>
-              <Typography fontSize={`10px`} color={"grey"}>
+              <Typography fontSize={`15px`} color={"grey"}>
                 @{data?.username}
               </Typography>
               <Typography>{data?.profile?.bio}</Typography>

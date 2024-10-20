@@ -65,7 +65,7 @@ export const searchUsers = async (query: string) => {
       profile: true,
     },
 
-    take: 10, // == LIMIT
+    take: 10,
   });
 };
 

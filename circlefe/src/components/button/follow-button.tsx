@@ -4,20 +4,20 @@
 // import { set } from "date-fns";
 // import { useEffect, useState } from "react";
 
-// const FollowButton = ({ userId }: { userId: number }) => {
+// const FollowButton = ({ followingId }: { followingId: number }) => {
 //   const [follow, setFollow] = useState(false);
-//   const [followCount, setFollowCount] = useState(0);
+//   const [ButtonText, setButtonText] = useState<string>("Follow");
 //   const checkFollow = async () => {
-//     const res = await api.get(`/follow/${userId}`);
+//     const res = await api.get(`/follow/${followingId}`);
 
 //     console.log(res.data);
-//     setFollow(res.data.isFollow);
-//     setFollowCount(res.data.followCount);
+//     setFollow(res.data.isFollowing);
+//     setButtonText(res.data.isFollowing ? "Following" : "Follow");
 //   };
 
-//   const handleLike = async () => {
+//   const handleFollow = async () => {
 //     const res = await api.post(`/follow/`, {
-//         userId,
+//       followingId,
 //     });
 
 //     console.log(res.data);
@@ -31,8 +31,8 @@
 //   return (
 //     <Stack direction={"row"} sx={{ cursor: "pointer" }}>
 //       <Button
-//         onClick={handleLike}
-//         icon={follow ? "line-md:heart-filled" : "line-md:heart"}
+//         onClick={handleFollow}
+//         icon={follow ? "Follow" : "Following"}
 //         sx={{ fontSize: "1.5rem", color: "red" }}
 //       />
 //     </Stack>
