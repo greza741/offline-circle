@@ -25,3 +25,9 @@ export interface ThreadDTO {
   images?: FileList;
   mainThreadId?: number;
 }
+
+export interface IReply {
+  content: string;
+  userId: number;
+  mainThreadId: number;
+}

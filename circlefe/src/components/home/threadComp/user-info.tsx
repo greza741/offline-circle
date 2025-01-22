@@ -14,9 +14,9 @@ const UserInformation: React.FC<Props> = ({
 }) => {
   return (
     <Stack direction={"row"} spacing={1}>
-      <Typography>{fullname}</Typography>
-      <Typography>@{username}</Typography>
-      <Typography>|</Typography>
+      <Typography fontWeight={"1000"}>{fullname}</Typography>
+      <Typography fontWeight={"1"}>@{username}</Typography>
+      <Typography>•</Typography>
       <Typography>
         {createdAt && formatDistanceToNow(new Date(createdAt))}
       </Typography>

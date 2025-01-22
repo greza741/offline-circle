@@ -82,3 +82,11 @@ export const findThreadByFollowerId = async (id: number, take: number) => {
     },
   });
 };
+
+export const countReplies = async (id: number) => {
+  return prisma.thread.count({
+    where: {
+      mainThreadId: id,
+    },
+  });
+};

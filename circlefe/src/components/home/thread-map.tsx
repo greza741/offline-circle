@@ -1,11 +1,12 @@
 import { IThread } from "@/type/thread";
-import { Avatar, Box, Stack } from "@mui/material";
+import { Avatar, Box, Stack, Typography } from "@mui/material";
 import React from "react";
 import Content from "./threadComp/content";
 import LikeButton from "./threadComp/like-button";
-import ReplyButton from "./threadComp/reply-button";
 import UserInformation from "./threadComp/user-info";
 import ModalDetail from "./threadComp/modalDetail";
+import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 interface Props {
   thread: IThread;
@@ -13,6 +14,11 @@ interface Props {
 
 const ThreadMap: React.FC<Props> = ({ thread }) => {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/thread/${thread.id}`);
+    ``;
+  };
 
   return (
     <Box sx={{ p: 2, borderBottom: "1px solid white" }}>
@@ -35,12 +41,20 @@ const ThreadMap: React.FC<Props> = ({ thread }) => {
           />
           <Stack direction={"row"} alignItems={"center"} spacing={1}>
             <LikeButton threadId={thread?.id} />
-            <ReplyButton threadId={thread?.id} />
+            <Stack
+              direction={"row"}
+              sx={{ cursor: "pointer" }}
+              onClick={handleClick}
+            >
+              <Icon icon="line-md:chat" style={{ fontSize: "1.5rem" }} />
+              <Typography>{thread._count?.replies}</Typography>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
       {thread?.images && (
         <ModalDetail
+          threadId={thread?.id}
           handleClose={() => setOpen(false)}
           images={thread.images}
           open={open}

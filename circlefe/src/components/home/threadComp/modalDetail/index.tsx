@@ -10,16 +10,37 @@ import {
 import { SwiperComponent } from "./swiper";
 import { IThreadImage } from "@/type/thread";
 import { LuImage } from "react-icons/lu";
+import { useAppDispatch, useAppSelector } from "@/stores";
+import { useEffect, useState } from "react";
+import { createReply, getReplies } from "@/stores/reply/async";
+import { getDetailThread } from "@/stores/thread/async";
 
 const ModalDetail = ({
   open,
   handleClose,
   images,
+  threadId,
 }: {
   open: boolean;
   handleClose: () => void;
   images: IThreadImage[];
+  threadId: number;
 }) => {
+  const dispatch = useAppDispatch();
+  const [content, setContent] = useState("");
+  const userId = useAppSelector((state) => state.auth.user!.id);
+  const replies = useAppSelector((state) => state.reply.replies);
+
+  useEffect(() => {
+    dispatch(getReplies(threadId));
+  }, []);
+
+  const handleReplySubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    dispatch(createReply({ content, userId: userId, mainThreadId: threadId }));
+    setContent("");
+    handleClose();
+  };
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
       <Stack direction={{ xs: "column", md: "row" }}>
@@ -86,14 +107,15 @@ const ModalDetail = ({
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5C8i-TGcY8w9gncSHFx3Vlg2b-fSh1IQSQ&s"
                 sx={{ width: 40, height: 40 }}
               />
-              <form style={{ width: "90%" }}>
+              <form style={{ width: "90%" }} onSubmit={handleReplySubmit}>
                 <Box paddingLeft="25px" display="flex">
                   <TextField
                     variant="outlined"
                     size="small"
                     sx={{ backgroundColor: "#3F3F3F", flex: 1 }}
                     placeholder="Feel free to reply..."
-                    // {...register("content")}
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
                   />
                   <label>
                     <LuImage size={40} />
@@ -115,6 +137,12 @@ const ModalDetail = ({
                   </Box>
                 </Box>
               </form>
+            </Box>
+            <Box>
+              <Typography>a</Typography>
+              {replies.map((reply) => (
+                <Typography key={reply.id}>{reply.content}</Typography>
+              ))}
             </Box>
           </Box>
         </Box>

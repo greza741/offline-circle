@@ -1,4 +1,5 @@
 import { RegisterDto, UpdateUserDto } from "../dto/auth-dto";
+import { FindUser, UserEntity } from "../entities/user-entities";
 import { prisma } from "../libs/prisma";
 
 export const findUserByEmailOrUsername = async (usernameOrEmail: string) => {
@@ -78,4 +79,8 @@ export const updateUser = async (id: number, data: Partial<UpdateUserDto>) => {
       ...data,
     },
   });
+};
+
+export const allUsers: () => Promise<FindUser[]> = async () => {
+  return prisma.user.findMany();
 };

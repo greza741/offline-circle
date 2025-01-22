@@ -65,3 +65,21 @@ export const feed = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const createReply = async function (req: Request, res: Response) {
+  const { content, userId, mainThreadId } = req.body;
+  const reply = await threadService.createReply(content, userId, mainThreadId);
+  res.json(reply);
+};
+
+export const getReplies = async function (req: Request, res: Response) {
+  const { id } = req.params;
+  const replies = await threadService.getReplies(+id);
+  res.json(replies);
+};
+
+export const replyCount = async function (req: Request, res: Response) {
+  const { id } = req.params;
+  const count = await threadService.replyCount(+id);
+  res.json(count);
+};

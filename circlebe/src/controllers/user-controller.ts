@@ -1,17 +1,13 @@
 import { Response, Request } from "express";
 import * as userServices from "../services/user-service";
 
-export const searchUser = async (req: Request, res: Response) => {
-  try {
-    const search = req.query.q as string;
-    const users = await userServices.searchUsers(search);
+export const searchUsers = async function (req: Request, res: Response) {
+  const query = req.query.q as string;
+  const users = await userServices.searchUsers(query);
+  res.json(users);
+};
 
-    res.json(users);
-  } catch (error) {
-    console.log(error);
-
-    res.status(500).json({
-      message: (error as Error).message,
-    });
-  }
+export const getAllUsers = async function (req: Request, res: Response) {
+  const users = await userServices.getAllUsers();
+  res.json(users);
 };

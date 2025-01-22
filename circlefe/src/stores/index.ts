@@ -3,11 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 import authReducer from "./auth/slice";
 import threadReducer from "./thread/slice";
+import { followSlice } from "./follow/async";
+import { userSlice } from "./user/slice";
+import replySlice from "./reply/async";
 
 const store = configureStore({
   reducer: {
     thread: threadReducer,
     auth: authReducer,
+    follow: followSlice.reducer,
+    user: userSlice.reducer,
+    reply: replySlice,
   },
 });
 

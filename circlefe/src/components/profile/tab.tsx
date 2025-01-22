@@ -1,13 +1,12 @@
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import { useAppDispatch, useAppSelector } from "@/stores";
-import { ImageList, ImageListItem, Typography } from "@mui/material";
-import ThreadMap from "../home/thread-map";
-import { CiCirclePlus } from "react-icons/ci";
 import { getFeed } from "@/stores/thread/async";
 import { IThreadImage } from "@/type/thread";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import * as React from "react";
+import { CiCirclePlus } from "react-icons/ci";
+import ThreadMap from "../home/thread-map";
 
 interface TabPanelProps {
   children?: React.ReactNode;

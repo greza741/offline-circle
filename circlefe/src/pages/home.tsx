@@ -2,6 +2,7 @@ import CreateThread from "@/components/home/create-thread";
 import ThreadMap from "@/components/home/thread-map";
 import { useAppDispatch, useAppSelector } from "@/stores";
 import { getFeed } from "@/stores/thread/async";
+import { getAllUsersAsync } from "@/stores/user/async";
 import { Box, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { CiCirclePlus } from "react-icons/ci";
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(getFeed(take));
+    dispatch(getAllUsersAsync());
   }, [take]);
 
   return (

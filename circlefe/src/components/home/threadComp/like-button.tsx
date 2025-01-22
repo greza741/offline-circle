@@ -9,7 +9,7 @@ const LikeButton = ({ threadId }: { threadId: number }) => {
   const checkLike = async () => {
     const res = await api.get(`/like/${threadId}`);
 
-    console.log(res.data);
+    console.log("check", res.data);
     setLike(res.data.isLiked);
     setLikeCount(res.data.count);
   };
